@@ -7,7 +7,7 @@ This repository contains the setup script and configuration files for the Unifie
 To set up the Unified IIoT Stack, follow these steps:
 
 1. Ensure that Docker and Docker Compose are installed on your system.
-2. Open a terminal.
+2. Open the terminal (CTRL+ALT+T).
 3. Run the following command to run the setup script:
 
 ```bash
