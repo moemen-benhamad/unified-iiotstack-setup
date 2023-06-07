@@ -11,7 +11,7 @@ To set up the Unified IIoT Stack, follow these steps:
 3. Run the following command to run the setup script:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-setup/main/setup.sh)"
+sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-setup/main/setup.sh)"
 ```
 
 4. Wait for the setup process to complete. Once done, you can access the different components of the Unified IIoT Stack as follows:
