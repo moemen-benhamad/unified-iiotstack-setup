@@ -63,9 +63,9 @@ cd "$DESTINATION_DIR" || {
 }
 
 # Check if the directories already exist
-if [ ! -d "nodered" ] || [ ! -d "influxdb" ] || [ ! -d "grafana" ] || [ ! -d "mosquitto/config" ] || [ ! -d "mosquitto/data" ] || [ ! -d "mosquitto/log" ]; then
+if [ ! -d "./node-red" ] || [ ! -d "./influxdb/data" ] || [ ! -d "./grafana/data" ] || [ ! -d "./mosquitto/config" ] || [ ! -d "./mosquitto/data" ] || [ ! -d "./mosquitto/log" ] || [ ! -d "./portainer/data" ]; then
     # Create the necessary directories
-    mkdir -p nodered influxdb grafana mosquitto/{config,data,log} || {
+    mkdir -p ./node-red ./influxdb/data ./grafana/data ./mosquitto/{config,data,log} ./portainer/data || {
         echo "Failed to create the necessary directories."
         if [ "$DESTINATION_DIR_CREATED" = true ]; then
             rm -rf "$DESTINATION_DIR"
@@ -85,6 +85,18 @@ install_docker || {
     fi
     exit 1
 }
+
+# Check if the Docker socket exists
+if [ ! -S "/var/run/docker.sock" ]; then
+    echo "Error: Docker socket not found. Please make sure Docker is installed and running."
+    exit 1
+fi
+
+# Add the current user to the docker group if not already a member
+if ! groups | grep -q "\bdocker\b"; then
+    sudo usermod -aG docker $USER
+    echo "Added the current user to the 'docker' group. Please log out and log back in to apply the changes."
+fi
 
 # Run the Docker Compose command
 docker-compose -f docker-compose.yml up || {
