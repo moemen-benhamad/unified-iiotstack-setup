@@ -95,7 +95,9 @@ fi
 # Add the current user to the docker group if not already a member
 if ! groups | grep -q "\bdocker\b"; then
     sudo usermod -aG docker $USER
-    echo "Added the current user to the 'docker' group. Please log out and log back in to apply the changes."
+    echo "Added the current user to the 'docker' group."
+    echo "Please log out and log back in to apply the changes."
+    exit 0
 fi
 
 # Run the Docker Compose command
