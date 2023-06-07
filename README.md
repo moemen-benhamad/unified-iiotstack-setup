@@ -18,6 +18,6 @@ To set up the Unified IIoT Stack, follow these steps:
 * Node-RED: http://localhost:1880
 * InfluxDB: http://localhost:8086
 * Grafana: http://localhost:3000
-* Mosquitto MQTT Broker: localhost:1883
+* Mosquitto MQTT Broker: http://localhost:1883
 
 Feel free to explore and customize the setup according to your needs!
