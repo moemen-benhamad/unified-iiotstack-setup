@@ -6,9 +6,9 @@ services:
     container_name: node-red
     ports:
       - 1880:1880
-    volumes:
-      - ./node-red:/data
     user: "1000:1000"
+    volumes:
+      - ./node-red:/usr/src/node-red/* 
 
   influxdb:
     image: influxdb
