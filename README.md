@@ -1,8 +1,15 @@
 # Unified IIoT Stack Setup
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-setup/main/iiot-stack-logo.png" width="500">
+  <img src="pics/iiot-stack-logo.png" width="500">
 </p>
+<div align="center">
+  <img src="pics/mosquitto-logo.png" alt="Mosquitto Logo" width="30">
+  <img src="pics/nodered-logo.png" alt="Node-RED Logo" width="30">
+  <img src="pics/influxdb-logo.png" alt="InfluxDB Logo" width="30">
+  <img src="pics/grafana-logo.png" alt="Grafana Logo" width="30">
+  <img src="pics/portainer-logo.png" alt="Portainer Logo" width="30">
+</div>
 
 ## Overview
 The Unified IIoT Stack Setup repository provides a simple and streamlined solution for setting up a comprehensive Industrial Internet of Things (IIoT) stack using Docker. This repository aims to simplify the installation process of popular IIoT components and serves as a starting point for beginners or anyone in need of a fast solution for installing and running the IIoT stack.
