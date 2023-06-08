@@ -141,14 +141,14 @@ docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
 echo ""
 echo "__________________________________________________________________________________"
 echo ""
-echo "                     EVERYTHING IS SETUP ONCE AND FOR ALL!
+echo "                     EVERYTHING IS SETUP ONCE AND FOR ALL!                        "
 echo ""
-echo "                                     __/___            "
-echo "                               _____/______|           "
-echo "                       _______/_____\_______\_____     "
-echo "                       \              < < <       |    "
-echo "                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-
+echo "                                     __/___                                       "
+echo "                               _____/______|                                      "
+echo "                       _______/_____\_______\_____                                "
+echo "                       \              < < <       |                               "
+echo "                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                           "
+echo ""
 echo "__________________________________________________________________________________"
 echo ""
 exit
