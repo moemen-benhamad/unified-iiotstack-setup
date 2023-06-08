@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo ""
+echo " "
 echo "██╗██╗██╗ ██████╗ ████████╗███████╗████████╗ █████╗  ██████╗██╗  ██╗"
 echo "██║██║██║██╔═══██╗╚══██╔══╝██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝"
 echo "██║██║██║██║   ██║   ██║   ███████╗   ██║   ███████║██║     █████╔╝"
 echo "██║██║██║██║   ██║   ██║   ╚════██║   ██║   ██╔══██║██║     ██╔═██╗"
 echo "██║██║██║╚██████╔╝   ██║   ███████║   ██║   ██║  ██║╚██████╗██║  ██╗"
 echo "╚═╝╚═╝╚═╝ ╚═════╝    ╚═╝   ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝"
-echo ""                                                                  
+echo " "                                                                  
 
 # Function to check and install Docker and Docker Compose
 install_docker() {
@@ -127,8 +127,10 @@ docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
     exit 1
 }
 
-echo
-echo "CONGRATS! EVERYTHING IS SETUP ONEC! Let the IIoT Journey start!"
+echo " "
+echo "-----------------------------------------------------------------------------"
+echo "CONGRATS! EVERYTHING IS SETUP ONECE AND FOR ALL! LET THE IIOT JOURNEY BEGIN!"
+echo " "
 exit
 
 
