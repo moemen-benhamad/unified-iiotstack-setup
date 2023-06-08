@@ -36,10 +36,7 @@ services:
     ports:
       - 1883:1883
     volumes:
-      - ./mosquitto/config:/mosquitto/config
-      - ./mosquitto/data:/mosquitto/data
-      - ./mosquitto/log:/mosquitto/log
-    command: mosquitto -c /mosquitto/config/mosquitto.conf
+      - ./mosquitto:/mosquitto/*
 
   portainer:
     image: portainer/portainer-ce
