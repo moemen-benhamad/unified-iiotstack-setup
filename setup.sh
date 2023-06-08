@@ -1,6 +1,13 @@
 #!/bin/bash
 
-# Check if Docker and Docker-compose are is installed and install them if not.
+
+echo "██╗██╗██╗ ██████╗ ████████╗███████╗████████╗ █████╗  ██████╗██╗  ██╗"
+echo "██║██║██║██╔═══██╗╚══██╔══╝██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝"
+echo "██║██║██║██║   ██║   ██║   ███████╗   ██║   ███████║██║     █████╔╝"
+echo "██║██║██║██║   ██║   ██║   ╚════██║   ██║   ██╔══██║██║     ██╔═██╗"
+echo "██║██║██║╚██████╔╝   ██║   ███████║   ██║   ██║  ██║╚██████╗██║  ██╗"
+echo "╚═╝╚═╝╚═╝ ╚═════╝    ╚═╝   ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝"
+                                                                   
 
 # Function to check and install Docker and Docker Compose
 install_docker() {
@@ -120,6 +127,8 @@ docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
     exit 1
 }
 
+echo
+echo "CONGRATS! EVERYTHING IS SETUP ONEC! Let the IIoT Journey start!"
 exit
 
 
