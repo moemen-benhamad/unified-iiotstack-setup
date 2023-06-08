@@ -26,7 +26,7 @@ services:
       - 3000:3000
     user: "472:472"
     volumes:
-      - ./grafana/data:/var/lib/grafana
+      - ./grafana/data:/var/lib/grafana/*
       - ./grafana/plugins:/var/lib/grafana/plugins
 
   mosquitto:
