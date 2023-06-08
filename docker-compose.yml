@@ -10,7 +10,7 @@ services:
     volumes:
       - ./node-red:/data
 
- influxdb:
+  influxdb:
     image: influxdb
     restart: always
     container_name: influxdb
@@ -19,7 +19,7 @@ services:
     volumes:
       - ./influxdb/data:/var/lib/influxdb2
 
- grafana:
+  grafana:
     image: grafana/grafana
     restart: always
     container_name: grafana
@@ -28,7 +28,7 @@ services:
     volumes:
       - ./grafana/data:/var/lib/grafana
 
- mosquitto:
+  mosquitto:
     image: eclipse-mosquitto
     restart: always
     container_name: mosquitto
@@ -39,7 +39,7 @@ services:
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
 
- portainer:
+  portainer:
     image: portainer/portainer-ce
     restart: always
     container_name: portainer
