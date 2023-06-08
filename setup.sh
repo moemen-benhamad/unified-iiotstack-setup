@@ -126,7 +126,7 @@ curl -LJO -o /dev/null https://raw.githubusercontent.com/moemen-benhamad/unified
     exit 1
 }
 
-echo "docker-compose.yml file donwloaded successfully."
+echo "docker-compose.yml file downloaded successfully."
 
 # Run the Docker Compose command with the correct path to docker-compose.yml
 docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
