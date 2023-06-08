@@ -27,6 +27,7 @@ services:
     user: "472:472"
     volumes:
       - ./grafana/data:/var/lib/grafana
+      - ./grafana/plugins:/var/lib/grafana/plugins
 
   mosquitto:
     image: eclipse-mosquitto
