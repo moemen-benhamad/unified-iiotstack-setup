@@ -132,6 +132,7 @@ docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
 
 echo ""
 echo "___________________________________________________________________________"
+echo ""
 echo "CONGRATS! EVERYTHING IS SETUP ONCE AND FOR ALL! LET THE IIOT JOURNEY BEGIN!"
 echo ""
 echo "                                __/___            "
