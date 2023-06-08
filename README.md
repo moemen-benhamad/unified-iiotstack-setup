@@ -1,7 +1,7 @@
 # Unified IIoT Stack Setup
 
 <p align="center">
-  <img src="pics/iiot-stack-logo.png" width="500">
+  <img src="pics/uiiot-stack-logo.png" width="500">
 </p>
 <div align="center">
   <img src="pics/mosquitto-logo.png" alt="Mosquitto Logo" width="30">
