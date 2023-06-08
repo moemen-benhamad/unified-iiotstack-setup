@@ -7,7 +7,8 @@ services:
     ports:
       - 1880:1880
     volumes:
-      - ./node-red:/usr/src/node-red/*
+      - ./node-red:/data
+    user: "1000:1000"
 
   influxdb:
     image: influxdb
