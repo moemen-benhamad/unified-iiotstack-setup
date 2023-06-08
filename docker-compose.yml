@@ -7,7 +7,7 @@ services:
     ports:
       - 1880:1880
     volumes:
-      - ./node-red:/data
+      - ./node-red:/usr/src/node-red
 
   influxdb:
     image: influxdb
@@ -27,7 +27,6 @@ services:
     user: "472:472"
     volumes:
       - ./grafana/data:/var/lib/grafana/*
-      - ./grafana/plugins:/var/lib/grafana/plugins
 
   mosquitto:
     image: eclipse-mosquitto
