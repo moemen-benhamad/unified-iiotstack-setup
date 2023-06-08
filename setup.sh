@@ -78,10 +78,10 @@ if ! groups | grep -q "\bdocker\b"; then
     exit 0
 fi
 
-echo "Creating /opt/iiotstack directory ..."
+echo "Creating /opt/uiiotstack directory ..."
 
 # Define the destination directory
-DESTINATION_DIR="/opt/iiotstack"
+DESTINATION_DIR="/opt/uiiotstack"
 
 # Check if the destination directory already exists
 if [ ! -d "$DESTINATION_DIR" ]; then
@@ -113,10 +113,10 @@ if [ ! -d "./node-red" ] || [ ! -d "./influxdb/data" ] || [ ! -d "./grafana/data
     DIRECTORIES_CREATED=true
 fi
 
-echo "/opt/iiotstack directory created successfully."
+echo "/opt/uiiotstack directory created successfully."
 
 echo "Downloading docker-compose.yml ..."
-# Download the docker-compose.yml file to the iiotstack directory
+# Download the docker-compose.yml file to the uiiotstack directory
 curl -LJO -o /dev/null https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-setup/main/docker-compose.yml || {
     echo "Failed to download the docker-compose.yml file."
     if [ "$DIRECTORIES_CREATED" = true ]; then
