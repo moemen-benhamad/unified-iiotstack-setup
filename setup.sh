@@ -120,6 +120,7 @@ docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
     exit 1
 }
 
+exit
 
 
 
