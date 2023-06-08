@@ -24,6 +24,7 @@ services:
     container_name: grafana
     ports:
       - 3000:3000
+    user: "472:472"
     volumes:
       - ./grafana/data:/var/lib/grafana
 
