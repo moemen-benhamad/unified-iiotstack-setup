@@ -39,7 +39,7 @@ services:
       - ./mosquitto/config:/mosquitto/config
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
-    command: "mosquitto -c /mosquitto/config/mosquitto.conf"
+    command: mosquitto -c /mosquitto/config/mosquitto.conf
 
   portainer:
     image: portainer/portainer-ce
