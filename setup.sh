@@ -111,7 +111,7 @@ curl -LJO https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-se
 }
 
 # Run the Docker Compose command with the correct path to docker-compose.yml
-docker-compose -df "$DESTINATION_DIR/docker-compose.yml" up || {
+docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
     echo "Failed to run Docker Compose."
     if [ "$DIRECTORIES_CREATED" = true ]; then
         rm -rf "$DESTINATION_DIR"
