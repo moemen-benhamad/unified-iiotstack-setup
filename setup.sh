@@ -1,15 +1,15 @@
 #!/bin/bash
 
 echo ""
-echo "___________________________________________________________________"
+echo "___________________________________________________________________________"
 echo " "
-echo " ██╗██╗ ██████╗ ████████╗███████╗████████╗ █████╗  ██████╗██╗  ██╗"
-echo " ██║██║██╔═══██╗╚══██╔══╝██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝"
-echo " ██║██║██║   ██║   ██║   ███████╗   ██║   ███████║██║     █████╔╝"
-echo " ██║██║██║   ██║   ██║   ╚════██║   ██║   ██╔══██║██║     ██╔═██╗"
-echo " ██║██║╚██████╔╝   ██║   ███████║   ██║   ██║  ██║╚██████╗██║  ██╗"
-echo " ╚═╝╚═╝ ╚═════╝    ╚═╝   ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝"
-echo "___________________________________________________________________"
+echo "     ██╗██╗ ██████╗ ████████╗███████╗████████╗ █████╗  ██████╗██╗  ██╗"
+echo "     ██║██║██╔═══██╗╚══██╔══╝██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝"
+echo "     ██║██║██║   ██║   ██║   ███████╗   ██║   ███████║██║     █████╔╝"
+echo "     ██║██║██║   ██║   ██║   ╚════██║   ██║   ██╔══██║██║     ██╔═██╗"
+echo "     ██║██║╚██████╔╝   ██║   ███████║   ██║   ██║  ██║╚██████╗██║  ██╗"
+echo "     ╚═╝╚═╝ ╚═════╝    ╚═╝   ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝"
+echo "___________________________________________________________________________"
 echo ""                                                                  
 
 # Function to check and install Docker and Docker Compose
@@ -73,9 +73,9 @@ cd "$DESTINATION_DIR" || {
 }
 
 # Check if the directories already exist
-if [ ! -d "./node-red" ] || [ ! -d "./influxdb/data" ] || [ ! -d "./grafana/data" ] || [ ! -d "./mosquitto/config" ] || [ ! -d "./mosquitto/data" ] || [ ! -d "./mosquitto/log" ] || [ ! -d "./portainer/data" ]; then
+if [ ! -d "./node-red" ] || [ ! -d "./influxdb/data" ] || [ ! -d "./grafana/data" ] || [ ! -d "./mosquitto" ] || [ ! -d "./portainer/data" ]; then
     # Create the necessary directories
-    mkdir -p ./node-red ./influxdb/data ./grafana/data ./mosquitto/{config,data,log} ./portainer/data || {
+    mkdir -p ./node-red ./influxdb/data ./grafana/data ./mosquitto/ ./portainer/data || {
         echo "Failed to create the necessary directories."
         if [ "$DESTINATION_DIR_CREATED" = true ]; then
             rm -rf "$DESTINATION_DIR"
@@ -85,6 +85,8 @@ if [ ! -d "./node-red" ] || [ ! -d "./influxdb/data" ] || [ ! -d "./grafana/data
     }
     DIRECTORIES_CREATED=true
 fi
+
+echo "/opt/iiotstack directory created successfully."
 
 # Check and install Docker and Docker Compose
 install_docker || {
@@ -107,6 +109,7 @@ if ! groups | grep -q "\bdocker\b"; then
     sudo usermod -aG docker $USER
     echo "Added the current user to the 'docker' group."
     echo "Please log out and log back in to apply the changes."
+    echo "Re-run the script again once logged in."
     exit 0
 fi
 
@@ -119,6 +122,8 @@ curl -LJO https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-se
     fi
     exit 1
 }
+
+echo "docker-compose.yml file donwloaded successfully."
 
 # Run the Docker Compose command with the correct path to docker-compose.yml
 docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
