@@ -100,8 +100,18 @@ if ! groups | grep -q "\bdocker\b"; then
     exit 0
 fi
 
-# Run the Docker Compose command
-docker-compose -f docker-compose.yml up || {
+# Download the docker-compose.yml file to the iiotstack directory
+curl -LJO https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-setup/main/docker-compose.yml || {
+    echo "Failed to download the docker-compose.yml file."
+    if [ "$DIRECTORIES_CREATED" = true ]; then
+        rm -rf "$DESTINATION_DIR"
+        echo "Destination directory reverted."
+    fi
+    exit 1
+}
+
+# Run the Docker Compose command with the correct path to docker-compose.yml
+docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up || {
     echo "Failed to run Docker Compose."
     if [ "$DIRECTORIES_CREATED" = true ]; then
         rm -rf "$DESTINATION_DIR"
@@ -109,3 +119,7 @@ docker-compose -f docker-compose.yml up || {
     fi
     exit 1
 }
+
+
+
+
