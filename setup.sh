@@ -53,6 +53,33 @@ install_docker() {
     fi
 }
 
+# Check and install Docker and Docker Compose
+install_docker || {
+    echo "Failed to install Docker and Docker Compose."
+    if [ "$DIRECTORIES_CREATED" = true ]; then
+        rm -rf "$DESTINATION_DIR"
+        echo "Destination directory reverted."
+    fi
+    exit 1
+}
+
+# Check if the Docker socket exists
+if [ ! -S "/var/run/docker.sock" ]; then
+    echo "Error: Docker socket not found. Please make sure Docker is installed and running."
+    exit 1
+fi
+
+# Add the current user to the docker group if not already a member
+if ! groups | grep -q "\bdocker\b"; then
+    sudo usermod -aG docker $USER
+    echo "Added the current user to the 'docker' group."
+    echo "Please log out and log back in to apply the changes."
+    echo "Re-run the script again once logged in."
+    exit 0
+fi
+
+echo "Creating /opt/iiotstack directory ..."
+
 # Define the destination directory
 DESTINATION_DIR="/opt/iiotstack"
 
@@ -88,33 +115,9 @@ fi
 
 echo "/opt/iiotstack directory created successfully."
 
-# Check and install Docker and Docker Compose
-install_docker || {
-    echo "Failed to install Docker and Docker Compose."
-    if [ "$DIRECTORIES_CREATED" = true ]; then
-        rm -rf "$DESTINATION_DIR"
-        echo "Destination directory reverted."
-    fi
-    exit 1
-}
-
-# Check if the Docker socket exists
-if [ ! -S "/var/run/docker.sock" ]; then
-    echo "Error: Docker socket not found. Please make sure Docker is installed and running."
-    exit 1
-fi
-
-# Add the current user to the docker group if not already a member
-if ! groups | grep -q "\bdocker\b"; then
-    sudo usermod -aG docker $USER
-    echo "Added the current user to the 'docker' group."
-    echo "Please log out and log back in to apply the changes."
-    echo "Re-run the script again once logged in."
-    exit 0
-fi
-
+echo "Downloading docker-compose.yml ..."
 # Download the docker-compose.yml file to the iiotstack directory
-curl -LJO https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-setup/main/docker-compose.yml || {
+curl -LJO -o /dev/null https://raw.githubusercontent.com/moemen-benhamad/unified-iiotstack-setup/main/docker-compose.yml || {
     echo "Failed to download the docker-compose.yml file."
     if [ "$DIRECTORIES_CREATED" = true ]; then
         rm -rf "$DESTINATION_DIR"
