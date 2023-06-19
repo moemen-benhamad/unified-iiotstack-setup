@@ -129,7 +129,8 @@ curl -LJO -o /dev/null https://raw.githubusercontent.com/moemen-benhamad/unified
 echo "docker-compose.yml file downloaded successfully."
 
 # Run the Docker Compose command with the correct path to docker-compose.yml
-docker-compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
+# Future work: Add support for docker version 1
+docker compose -f "$DESTINATION_DIR/docker-compose.yml" up -d || {
     echo "Failed to run Docker Compose."
     if [ "$DIRECTORIES_CREATED" = true ]; then
         rm -rf "$DESTINATION_DIR"
