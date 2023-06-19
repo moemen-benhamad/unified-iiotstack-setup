@@ -11,7 +11,7 @@ services:
       - ./node-red:/usr/src/node-red/* 
 
   influxdb:
-    image: franzbischoff/influxdb2armhf
+    image: influxdb
     restart: always
     container_name: influxdb
     ports:
@@ -30,7 +30,7 @@ services:
       - ./grafana/data:/var/lib/grafana/*
 
   portainer:
-    image: portainer/portainer
+    image: portainer/portainer-ce
     restart: always
     container_name: portainer
     ports:
