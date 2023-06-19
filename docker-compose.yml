@@ -20,9 +20,9 @@ services:
       - ./influxdb/data:/var/lib/influxdb2
 
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana-oss
     restart: always
-    container_name: grafana
+    container_name: grafana-oss
     ports:
       - 3000:3000
     user: "472:472"
