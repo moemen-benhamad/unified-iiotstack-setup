@@ -29,6 +29,16 @@ services:
     volumes:
       - ./grafana/data:/var/lib/grafana/*
 
+  portainer:
+    image: portainer/portainer
+    restart: always
+    container_name: portainer
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
   mosquitto:
     image: eclipse-mosquitto
     restart: always
@@ -37,16 +47,6 @@ services:
       - 1883:1883
     volumes:
       - ./mosquitto:/mosquitto/*
-
-  portainer:
-    image: portainer/portainer-ce
-    restart: always
-    container_name: portainer
-    ports:
-      - 9000:9000
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
 
 volumes:
   portainer_data:
