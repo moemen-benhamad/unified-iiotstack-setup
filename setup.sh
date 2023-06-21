@@ -1,4 +1,4 @@
-#!/bin/bash
+d#!/bin/bash
 
 echo ""
 echo "__________________________________________________________________________________"
@@ -36,14 +36,14 @@ install_docker() {
     fi
 
     # Check if Docker Compose is installed
-    if ! command -v docker-compose &> /dev/null; then
+    if ! command -v docker compose &> /dev/null; then
         echo "Docker Compose not found. Installing Docker Compose..."
         # Install Docker Compose
         sudo apt-get install docker-compose || {
             echo "Failed to install Docker Compose."
             exit 1
         }
-        sudo chmod +x /usr/local/bin/docker-compose || {
+        sudo chmod +x /usr/local/bin/docker compose || {
             echo "Failed to set execute permission on Docker Compose."
             exit 1
         }
