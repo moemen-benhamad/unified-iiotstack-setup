@@ -11,13 +11,19 @@ services:
       - ./node-red:/usr/src/node-red/* 
 
   influxdb:
-    image: arm32v7/influxdb
-    restart: always
-    container_name: influxdb
-    ports:
-      - 8086:8086
-    volumes:
-      - ./influxdb/data:/var/lib/influxdb2
+  image: influxdb
+  restart: always
+  container_name: influxdb
+  ports:
+    - 8086:8086
+  volumes:
+    - ./influxdb/data:/var/lib/influxdb2
+  platforms:
+    - architecture: arm
+      variant: v7
+      image: arm32v7/influxdb
+    - architecture: amd64
+      image: influxdb
 
   grafana:
     image: grafana/grafana-oss
