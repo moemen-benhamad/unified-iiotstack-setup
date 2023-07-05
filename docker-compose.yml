@@ -10,7 +10,7 @@ services:
     volumes:
       - ./node-red:/usr/src/node-red/* 
 
-   influxdb:
+  influxdb:
     image: influxdb
     restart: always
     container_name: influxdb
